@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import "./Statistics.css"; // 👈 import the CSS
+import { BASE_URL } from "../config.js";
 
 function Statistics() {
   const [startDate, setStartDate] = useState(
@@ -51,13 +52,13 @@ function Statistics() {
 
     try {
       const incomeRes = await fetch(
-        `http://localhost:8080/income/filterByDate?startDate=${start}&endDate=${end}`,
+        `${BASE_URL}/income/filterByDate?startDate=${start}&endDate=${end}`,
         {
           headers: { authorization: `${token}` },
         }
       );
       const expenseRes = await fetch(
-        `http://localhost:8080/expense/filterByDate?startDate=${start}&endDate=${end}`,
+        `${BASE_URL}/expense/filterByDate?startDate=${start}&endDate=${end}`,
         {
           headers: { authorization: `${token}` },
         }
