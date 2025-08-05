@@ -1,0 +1,22 @@
+/* reset body margin and ensure full height */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+/* wrapper for sidebar + content */
+.app-container {
+  display: flex;
+  height: 100%;
+  margin-top: 60px; /* space for header */
+}
+
+/* main-content area sits to the right of sidebar */
+.main-content {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+}

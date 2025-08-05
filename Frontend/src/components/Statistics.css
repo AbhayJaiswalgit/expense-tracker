@@ -1,0 +1,109 @@
+/* Container styling */
+.statistics {
+  padding-left: 250px;
+  background-color: #f0f4f8;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 2rem;
+  box-sizing: border-box;
+}
+
+/* Heading */
+.statistics h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Date filter section */
+.date-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.date-filters label {
+  font-weight: 500;
+  margin-right: 0.5rem;
+  color: #333;
+  font-size: 1rem;
+}
+
+.date-filters div {
+  display: flex;
+  align-items: center;
+}
+
+/* Chart containers */
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-bottom: 2rem;
+}
+
+.chart-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.chart-box:hover {
+  transform: translateY(-4px);
+}
+
+.chart-box h5 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Tooltip and legend cleanup (optional enhancement) */
+.recharts-default-tooltip {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+  .statistics h2 {
+    font-size: 1.8rem;
+  }
+
+  .chart-box {
+    padding: 1.5rem;
+  }
+
+  .chart-box h5 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .chart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .date-filters {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .statistics h2 {
+    font-size: 1.6rem;
+  }
+}

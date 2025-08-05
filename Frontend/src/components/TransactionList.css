@@ -1,0 +1,47 @@
+.transaction-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transaction-card {
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  background-color: white;
+  border-left: 6px solid;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.income-list .transaction-card {
+  border-color: #28a745;
+}
+
+.expense-list .transaction-card {
+  border-color: #dc3545;
+}
+
+.transaction-icon {
+  font-size: 1.5rem;
+  margin-right: 12px;
+}
+
+.transaction-card > div:nth-child(2) {
+  flex-grow: 1;
+}
+
+.transaction-card .date {
+  font-size: 0.8rem;
+  color: #777;
+  margin: 0;
+}
+
+.amount {
+  font-weight: bold;
+  font-size: 1rem;
+}
