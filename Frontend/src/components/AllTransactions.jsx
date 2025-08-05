@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import "./AllTransactions.css";
+import { BASE_URL } from "../config";
 
 function AllTransactions() {
   const handleDelete = async (id, type) => {
     const token = localStorage.getItem("token");
     try {
-      const res = await fetch(`http://localhost:8080/${type}/${id}`, {
+      const res = await fetch(`${BASE_URL}/${type}/${id}`, {
         method: "DELETE",
         headers: {
           authorization: `${token}`,
@@ -27,12 +28,9 @@ function AllTransactions() {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch(
-        "http://localhost:8080/dashboard/allTransactions",
-        {
-          headers: { authorization: `${token}` },
-        }
-      );
+      const response = await fetch(`${BASE_URL}/dashboard/allTransactions`, {
+        headers: { authorization: `${token}` },
+      });
 
       const alldata = await response.json();
       if (alldata.success) {

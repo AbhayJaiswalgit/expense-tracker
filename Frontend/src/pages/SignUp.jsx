@@ -5,6 +5,7 @@ import { handleError, handleSuccess } from "../utils";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Header from "../components/Header";
+import { BASE_URL } from "../config";
 
 function SignUp() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function SignUp() {
     const password = event.target[2].value;
     const formdata = { name, email, password };
 
-    const url = "http://localhost:8080/auth/signup";
+    const url = `${BASE_URL}/auth/signup`;
     try {
       const res = await fetch(url, {
         method: "POST",

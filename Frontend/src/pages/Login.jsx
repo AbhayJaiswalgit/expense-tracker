@@ -4,6 +4,7 @@ import { handleError, handleSuccess } from "../utils";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Header from "../components/Header";
+import { BASE_URL } from "../config";
 
 function Login() {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ function Login() {
 
     console.log(email, password);
 
-    const url = "http://localhost:8080/auth/login";
+    const url = `${BASE_URL}/auth/login`;
     try {
       const res = await fetch(url, {
         method: "POST",

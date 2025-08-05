@@ -2,6 +2,7 @@ import React from "react";
 import { handleError, handleSuccess } from "../utils";
 import "./AddExpense.css";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../config";
 
 function AddExpense() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function AddExpense() {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch("http://localhost:8080/expense/add", {
+      const response = await fetch(`${BASE_URL}/expense/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

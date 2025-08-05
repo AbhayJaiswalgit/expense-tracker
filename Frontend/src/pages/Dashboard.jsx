@@ -3,6 +3,7 @@ import "./Dashboard.css";
 import RecentIncome from "../components/RecentIncome";
 import RecentExpense from "../components/RecentExpense";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../config";
 
 function Dashboard() {
   const [recentIncome, setRecentIncome] = useState([]);
@@ -20,12 +21,9 @@ function Dashboard() {
       try {
         const token = localStorage.getItem("token");
 
-        const response = await fetch(
-          "http://localhost:8080/dashboard/summary",
-          {
-            headers: { authorization: `${token}` },
-          }
-        );
+        const response = await fetch(`${BASE_URL}/dashboard/summary`, {
+          headers: { authorization: `${token}` },
+        });
         const data = await response.json();
         if (data.success) {
           setRecentExpense(data.recent.expenses);
@@ -33,12 +31,9 @@ function Dashboard() {
           setNetBalance(data.summary.netBalance);
         }
 
-        const incomeres = await fetch(
-          "http://localhost:8080/income/monthincome",
-          {
-            headers: { authorization: `${token}` },
-          }
-        );
+        const incomeres = await fetch(`${BASE_URL}/income/monthincome`, {
+          headers: { authorization: `${token}` },
+        });
 
         const incomedata = await incomeres.json();
         console.log(incomedata);
@@ -49,12 +44,9 @@ function Dashboard() {
           setCountIncome(incomedata.count);
         }
 
-        const expenseres = await fetch(
-          "http://localhost:8080/expense/monthexpense",
-          {
-            headers: { authorization: `${token}` },
-          }
-        );
+        const expenseres = await fetch(`${BASE_URL}/expense/monthexpense`, {
+          headers: { authorization: `${token}` },
+        });
 
         const expensedata = await expenseres.json();
         if (expensedata.success) {
