@@ -1,0 +1,45 @@
+.budget-card {
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  height: 100%; /* Ensure cards in a row have equal height */
+  border: 1px solid #dee2e6;
+}
+
+.overall-budget-card {
+  border: 2px solid #6f42c1;
+}
+
+.overall-budget-card .card-title {
+  font-weight: bold;
+  color: #6f42c1;
+}
+
+.budget-card .card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.budget-card .card-text {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.budget-card .progress {
+  height: 10px;
+  border-radius: 5px;
+  background-color: #e9ecef;
+}
+
+.budget-card .progress-bar {
+  border-radius: 5px;
+}
+
+.set-budget-link {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.set-budget-link:hover {
+  text-decoration: underline;
+}

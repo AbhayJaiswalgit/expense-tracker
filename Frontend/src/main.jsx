@@ -13,6 +13,7 @@ import ProtectedRoute from "./ProtectedRoute.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import AddIncome from "./pages/AddIncome.jsx";
 import AddExpense from "./pages/AddExpense.jsx";
+import SetBudget from "./pages/SetBudget.jsx";
 import Statistics from "./components/Statistics.jsx";
 import AllTransactions from "./components/AllTransactions.jsx";
 
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
       { path: "summary", element: <Dashboard /> },
       { path: "add-income", element: <AddIncome /> },
       { path: "add-expense", element: <AddExpense /> },
+      { path: "set-budget", element: <SetBudget /> },
       { path: "statistics", element: <Statistics /> },
       { path: "all-Transactions", element: <AllTransactions /> },
     ],
@@ -41,5 +43,5 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>
+  </StrictMode>,
 );
