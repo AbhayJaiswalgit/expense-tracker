@@ -32,6 +32,14 @@ mongoose
 
 app.use(cors());
 app.use(express.json());
+
+app.get("/health", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    message: "Server is running"
+  });
+});
+
 app.use("/auth", userRoute);
 app.use("/income", ensureAuthentication, incomeRoute);
 app.use("/expense", ensureAuthentication, expenseRoute);
