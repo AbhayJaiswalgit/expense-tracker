@@ -4,6 +4,7 @@ const userRoute = require("./routes/userRoute");
 const expenseRoute = require("./routes/expenseRoute");
 const incomeRoute = require("./routes/incomeRoute");
 const dashboardRoute = require("./routes/dashboardRoute");
+const budgetRoute = require("./routes/budgetRoute");
 const ensureAuthentication = require("./middlewares/ensureAuthentication");
 const cors = require("cors");
 
@@ -28,6 +29,7 @@ app.use("/auth", userRoute);
 app.use("/income", ensureAuthentication, incomeRoute);
 app.use("/expense", ensureAuthentication, expenseRoute);
 app.use("/dashboard", ensureAuthentication, dashboardRoute);
+app.use("/budget", ensureAuthentication, budgetRoute);
 
 app.listen(port, () => {
   console.log(`Server started at PORT:${port}`);
