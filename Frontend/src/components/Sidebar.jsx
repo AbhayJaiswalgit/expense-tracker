@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import "./Sidebar.css";
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
+  const handleLinkClick = () => {
+    if (window.innerWidth <= 768) {
+      toggleSidebar();
+    }
+  };
+
   return (
     <>
       {/* Mobile Backdrop */}
@@ -18,22 +24,22 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       >
         <ul className="nav flex-column">
           <li className="nav-item mb-2">
-            <Link className="nav-link text-white" to="/dashboard" onClick={toggleSidebar}>
+            <Link className="nav-link text-white" to="/dashboard" onClick={handleLinkClick}>
               Dashboard
             </Link>
           </li>
           <li className="nav-item mb-2">
-            <Link className="nav-link text-white" to="/dashboard/add-expense" onClick={toggleSidebar}>
+            <Link className="nav-link text-white" to="/dashboard/add-expense" onClick={handleLinkClick}>
               Add Expense
             </Link>
           </li>
           <li className="nav-item mb-2">
-            <Link className="nav-link text-white" to="/dashboard/add-income" onClick={toggleSidebar}>
+            <Link className="nav-link text-white" to="/dashboard/add-income" onClick={handleLinkClick}>
               Add Income
             </Link>
           </li>
           <li className="nav-item mb-2">
-            <Link className="nav-link text-white" to="/dashboard/statistics" onClick={toggleSidebar}>
+            <Link className="nav-link text-white" to="/dashboard/statistics" onClick={handleLinkClick}>
               Statistics
             </Link>
           </li>
@@ -41,14 +47,14 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
             <Link
               className="nav-link text-white"
               to="/dashboard/all-Transactions"
-              onClick={toggleSidebar}
+              onClick={handleLinkClick}
             >
               Transactions History
             </Link>
           </li>
 
           <li className="nav-item mb-2">
-            <Link className="nav-link text-white" to="/login" onClick={toggleSidebar}>
+            <Link className="nav-link text-white" to="/login" onClick={handleLinkClick}>
               Logout
             </Link>
           </li>

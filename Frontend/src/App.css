@@ -10,7 +10,7 @@ html, body, #root {
 /* wrapper for sidebar + content */
 .app-container {
   display: flex;
-  height: 100%;
+  height: calc(100vh - 60px);
   margin-top: 60px; /* space for header */
 }
 
@@ -19,19 +19,30 @@ html, body, #root {
   flex: 1;
   padding: 1.5rem;
   overflow-y: auto;
-  margin-left: 250px;
-  width: calc(100% - 250px); /* ensure it doesn't overflow flex container */
+  margin-left: 0;
+  width: 100%; /* default when closed on desktop */
   transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+}
+
+.main-content.sidebar-open {
+  margin-left: 250px;
+  width: calc(100% - 250px);
 }
 
 @media (max-width: 768px) {
   .app-container {
     margin-top: 56px;
+    height: calc(100vh - 56px);
   }
   
   .main-content {
     margin-left: 0;
     width: 100%;
     padding: 1rem;
+  }
+  
+  .main-content.sidebar-open {
+    margin-left: 0;
+    width: 100%;
   }
 }

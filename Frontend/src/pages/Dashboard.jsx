@@ -3,6 +3,7 @@ import "./Dashboard.css";
 import RecentIncome from "../components/RecentIncome";
 import BudgetCard from "../components/BudgetCard";
 import RecentExpense from "../components/RecentExpense";
+import Loader from "../components/Loader";
 import { Link, useNavigate } from "react-router-dom";
 import { BASE_URL } from "../config";
 import { handleError, handleSuccess } from "../utils";
@@ -19,6 +20,7 @@ function Dashboard() {
   const [countExpense, setCountExpense] = useState(0);
   const [netBalance, setNetBalance] = useState(0);
   const [budgets, setBudgets] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchDashboardData = async () => {
     try {
@@ -65,6 +67,8 @@ function Dashboard() {
       }
     } catch (err) {
       console.log("Failer to fetch dashboard data:", err);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -99,10 +103,18 @@ function Dashboard() {
     });
   };
 
+  if (isLoading) {
+    return (
+      <div className="dashboard-container">
+        <Loader message="Loading dashboard..." />
+      </div>
+    );
+  }
+
   return (
     <>
       <div
-        className="main-content"
+        className="dashboard-container"
       >
         <div className="income-expenses">
           <div className="income flex-fill">

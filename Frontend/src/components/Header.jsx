@@ -21,7 +21,7 @@ const Header = ({ toggleSidebar }) => {
     <header className="header">
       <div className="d-flex align-items-center">
         <button 
-          className="btn btn-outline-light d-md-none me-2 p-1" 
+          className="btn btn-outline-light me-2 p-1" 
           onClick={toggleSidebar}
           aria-label="Toggle Sidebar"
           style={{ border: 'none', background: 'transparent' }}

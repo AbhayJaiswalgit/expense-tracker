@@ -6,6 +6,7 @@ import {
   PieChart, Pie, Cell, Tooltip, Legend, 
   BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer 
 } from "recharts";
+import Loader from "./Loader";
 import "./Statistics.css";
 import { BASE_URL } from "../config.js";
 
@@ -20,6 +21,7 @@ function Statistics() {
     return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
   });
   const [isGeneratingPDF, setIsGeneratingPDF] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleDownloadReport = async () => {
     setIsGeneratingPDF(true);
@@ -203,12 +205,22 @@ function Statistics() {
       
     } catch (err) {
       handleError("Failed to fetch chart data");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
     fetchChartData();
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="statistics mt-5 pb-5">
+        <Loader message="Loading statistics..." />
+      </div>
+    );
+  }
 
   return (
     <div className="statistics mt-5 pb-5">

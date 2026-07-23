@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
@@ -7,7 +7,17 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(() => {
+    const saved = localStorage.getItem("sidebarOpen");
+    if (saved !== null) {
+      return saved === "true";
+    }
+    return window.innerWidth > 768;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("sidebarOpen", isSidebarOpen);
+  }, [isSidebarOpen]);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -18,7 +28,7 @@ export default function App() {
       <Header toggleSidebar={toggleSidebar} />
       <div className="app-container">
         <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-        <main className="main-content">
+        <main className={`main-content ${isSidebarOpen ? "sidebar-open" : ""}`}>
           <Outlet />
         </main>
       </div>

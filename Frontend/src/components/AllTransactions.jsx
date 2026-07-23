@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./AllTransactions.css";
 import { BASE_URL } from "../config";
 import { handleError, handleSuccess } from "../utils";
+import Loader from "./Loader";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Filter configuration — add new entries here to extend filtering in future
@@ -33,9 +34,11 @@ function AllTransactions() {
   const [recurringList, setRecurringList] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [editForm, setEditForm] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   // ── fetch all regular transactions (existing logic unchanged) ──
   const fetchAllTransactions = async () => {
+    setIsLoading(true);
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(`${BASE_URL}/dashboard/allTransactions`, {
@@ -47,11 +50,14 @@ function AllTransactions() {
       }
     } catch (err) {
       handleError("Failed to fetch transactions");
+    } finally {
+      setIsLoading(false);
     }
   };
 
   // ── fetch recurring templates ──
   const fetchRecurring = async () => {
+    setIsLoading(true);
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(`${BASE_URL}/recurring/all`, {
@@ -61,6 +67,8 @@ function AllTransactions() {
       if (data.success) setRecurringList(data.data);
     } catch (err) {
       handleError("Failed to fetch recurring transactions");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -240,7 +248,11 @@ function AllTransactions() {
         </div>
       </div>
 
-      {/* ══════════════════════════════════════════════════════════════════ */}
+      {isLoading ? (
+        <Loader message="Loading transactions..." />
+      ) : (
+        <>
+          {/* ══════════════════════════════════════════════════════════════════ */}
       {/* Regular Transactions (All / Income / Expense filters)            */}
       {/* ══════════════════════════════════════════════════════════════════ */}
       {activeFilter !== "recurring" && (
@@ -490,6 +502,8 @@ function AllTransactions() {
               </React.Fragment>
             ))}
           </ul>
+        </>
+      )}
         </>
       )}
     </div>

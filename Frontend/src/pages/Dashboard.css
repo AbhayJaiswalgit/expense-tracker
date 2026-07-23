@@ -1,6 +1,6 @@
 /* Dashboard.css */
 
-.main-content {
+.dashboard-container {
   background-color: #e6f7f9;
   min-height: 100vh;
   padding: 1rem; /* ensure consistent padding */
