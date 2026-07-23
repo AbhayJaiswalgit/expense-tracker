@@ -6,6 +6,7 @@ const incomeRoute = require("./routes/incomeRoute");
 const dashboardRoute = require("./routes/dashboardRoute");
 const budgetRoute = require("./routes/budgetRoute");
 const recurringRoute = require("./routes/recurringRoute");
+const analyticsRoute = require("./routes/analyticsRoute");
 const ensureAuthentication = require("./middlewares/ensureAuthentication");
 const cors = require("cors");
 const cron = require("node-cron");
@@ -37,6 +38,7 @@ app.use("/expense", ensureAuthentication, expenseRoute);
 app.use("/dashboard", ensureAuthentication, dashboardRoute);
 app.use("/budget", ensureAuthentication, budgetRoute);
 app.use("/recurring", ensureAuthentication, recurringRoute);
+app.use("/analytics", ensureAuthentication, analyticsRoute);
 
 app.listen(port, () => {
   console.log(`Server started at PORT:${port}`);
