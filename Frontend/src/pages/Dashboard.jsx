@@ -103,11 +103,10 @@ function Dashboard() {
     <>
       <div
         className="main-content"
-        style={{ marginLeft: "250px", padding: "1rem" }}
       >
         <div className="income-expenses">
-          <div className="income">
-            <div className="card text-bg-success" style={{ width: "18rem" }}>
+          <div className="income flex-fill">
+            <div className="card text-bg-success h-100">
               <div className="card-body">
                 <h5 className="card-title">
                   Total Income ({month},{year})
@@ -123,8 +122,8 @@ function Dashboard() {
             </div>
           </div>
 
-          <div className="expense">
-            <div className="card text-bg-danger" style={{ width: "18rem" }}>
+          <div className="expense flex-fill">
+            <div className="card text-bg-danger h-100">
               <div className="card-body">
                 <h5 className="card-title">
                   Total Expense ({month},{year})
@@ -140,12 +139,11 @@ function Dashboard() {
             </div>
           </div>
 
-          <div className="net-balance">
+          <div className="net-balance flex-fill">
             <div
-              className={`card ${
+              className={`card h-100 ${
                 income - expense >= 0 ? "text-bg-success" : "text-bg-danger"
               }`}
-              style={{ width: "18rem" }}
             >
               <div className="card-body">
                 <h5 className="card-title">Net Balance (Till Date)</h5>
@@ -154,8 +152,8 @@ function Dashboard() {
             </div>
           </div>
 
-          <div className="transactions">
-            <div className="card text-bg-info" style={{ width: "18rem" }}>
+          <div className="transactions flex-fill">
+            <div className="card text-bg-info h-100">
               <div className="card-body">
                 <h5 className="card-title">
                   Number of Transactions ({month},{year})
@@ -218,11 +216,11 @@ function Dashboard() {
           </div>
         </div>
 
-        <div className="d-flex justify-content-between flex-wrap gap-3">
-          <div className="flex-fill" style={{ minWidth: "300px" }}>
+        <div className="d-flex justify-content-between flex-wrap gap-3 mt-4">
+          <div className="flex-fill" style={{ minWidth: "250px", flex: "1 1 0%" }}>
             <RecentIncome recentIncome={recentIncome} />
           </div>
-          <div className="flex-fill" style={{ minWidth: "300px" }}>
+          <div className="flex-fill" style={{ minWidth: "250px", flex: "1 1 0%" }}>
             <RecentExpense recentExpense={recentExpense} />
           </div>
         </div>

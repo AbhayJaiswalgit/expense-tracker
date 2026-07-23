@@ -129,7 +129,7 @@ function AddExpense() {
   const frequencies = ["daily", "weekly", "monthly", "yearly"];
 
   return (
-    <div style={{ marginLeft: "250px", padding: "1rem" }}>
+    <div style={{ padding: "1rem" }}>
       <div className="add-expense-container">
         <h2>{isRecurring ? "Add Recurring Expense" : "Add Expense"}</h2>
         <form onSubmit={handleSubmit}>

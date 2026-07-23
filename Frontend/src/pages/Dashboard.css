@@ -92,7 +92,18 @@
 
 @media (max-width: 992px) {
   .income-expenses {
-    flex-direction: column;
     gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .income-expenses {
+    flex-direction: column;
+  }
+  
+  .recent-section table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }

@@ -170,7 +170,7 @@ function SetBudget() {
   };
 
   return (
-    <div style={{ marginLeft: "250px", padding: "1rem" }}>
+    <div style={{ padding: "1rem" }}>
       <div className="set-budget-container">
         <h2>{isEdit ? "Edit Budget" : "Set Monthly Budget"}</h2>
         <form onSubmit={handleSubmit}>

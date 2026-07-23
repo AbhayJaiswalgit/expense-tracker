@@ -98,7 +98,7 @@ function AddIncome() {
   const frequencies = ["daily", "weekly", "monthly", "yearly"];
 
   return (
-    <div style={{ marginLeft: "250px", padding: "1rem" }}>
+    <div style={{ padding: "1rem" }}>
       <div className="add-income-container">
         <h2>{isRecurring ? "Add Recurring Income" : "Add Income"}</h2>
         <form onSubmit={handleSubmit}>

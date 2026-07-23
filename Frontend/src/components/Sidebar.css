@@ -1,14 +1,21 @@
 .sidebar {
-  background: rgba(20, 20, 40, 0.95);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  background: rgba(20, 20, 40, 0.95) !important;
   box-shadow: 2px 0 12px rgba(0, 0, 0, 0.4);
   height: 100vh;
   padding-top: 1rem;
   font-family: "Segoe UI", sans-serif;
   backdrop-filter: blur(8px);
+  z-index: 1000;
+  margin-top: 60px; /* space for header */
+  transition: transform 0.3s ease-in-out;
 }
 
 .sidebar .nav-link {
-  color: #ccc;
+  color: #ccc !important;
   font-size: 1rem;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -17,16 +24,39 @@
 
 .sidebar .nav-link:hover {
   background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  color: #fff !important;
   padding-left: 1.25rem;
 }
 
 .sidebar .nav-link.active {
   background-color: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  color: #fff !important;
   font-weight: 500;
 }
 
 .sidebar .nav-item + .nav-item {
   margin-top: 0.5rem;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    margin-top: 56px; /* align with mobile header */
+    width: 260px;
+  }
+  
+  .sidebar.sidebar-open {
+    transform: translateX(0);
+  }
+}
+
+.sidebar-backdrop {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  width: 100vw;
+  height: calc(100vh - 56px);
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }

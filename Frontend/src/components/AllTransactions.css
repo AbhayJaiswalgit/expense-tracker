@@ -1,6 +1,6 @@
 .transactions-container {
   max-width: 800px;
-   margin: 30px auto 30px 300px;
+   margin: 30px auto;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 12px;
@@ -363,5 +363,22 @@
 
   .recurring-actions {
     flex-wrap: wrap;
+  }
+  
+  .transaction-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .amount-delete {
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .transaction-right {
+    align-items: flex-start;
   }
 }

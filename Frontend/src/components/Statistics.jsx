@@ -286,26 +286,28 @@ function Statistics() {
         <div className="chart-box">
           <h5>Income Source Breakdown</h5>
           {incomeData.length > 0 ? (
-            <PieChart width={350} height={350}>
-              <Pie
-                data={incomeData}
-                dataKey="total"
-                nameKey="source"
-                cx="50%"
-                cy="50%"
-                outerRadius={100}
-                label
-              >
-                {incomeData.map((_, index) => (
-                  <Cell
-                    key={`cell-income-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                  />
-                ))}
-              </Pie>
-              <Tooltip />
-              <Legend />
-            </PieChart>
+            <ResponsiveContainer width="100%" height={350}>
+              <PieChart>
+                <Pie
+                  data={incomeData}
+                  dataKey="total"
+                  nameKey="source"
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={100}
+                  label
+                >
+                  {incomeData.map((_, index) => (
+                    <Cell
+                      key={`cell-income-${index}`}
+                      fill={COLORS[index % COLORS.length]}
+                    />
+                  ))}
+                </Pie>
+                <Tooltip />
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
           ) : (
             <p>No income data available</p>
           )}
@@ -315,26 +317,28 @@ function Statistics() {
         <div className="chart-box">
           <h5>Expense Category Breakdown</h5>
           {expenseData.length > 0 ? (
-            <PieChart width={350} height={350}>
-              <Pie
-                data={expenseData}
-                dataKey="total"
-                nameKey="category"
-                cx="50%"
-                cy="50%"
-                outerRadius={100}
-                label
-              >
-                {expenseData.map((_, index) => (
-                  <Cell
-                    key={`cell-expense-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                  />
-                ))}
-              </Pie>
-              <Tooltip />
-              <Legend />
-            </PieChart>
+            <ResponsiveContainer width="100%" height={350}>
+              <PieChart>
+                <Pie
+                  data={expenseData}
+                  dataKey="total"
+                  nameKey="category"
+                  cx="50%"
+                  cy="50%"
+                  outerRadius={100}
+                  label
+                >
+                  {expenseData.map((_, index) => (
+                    <Cell
+                      key={`cell-expense-${index}`}
+                      fill={COLORS[index % COLORS.length]}
+                    />
+                  ))}
+                </Pie>
+                <Tooltip />
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
           ) : (
             <p>No expense data available</p>
           )}
