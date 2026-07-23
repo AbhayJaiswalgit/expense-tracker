@@ -40,12 +40,12 @@
 
 /* Chart containers */
 .chart-container {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 2rem;
-  flex-wrap: wrap;
   padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .chart-box {
@@ -54,9 +54,12 @@
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
   width: 100%;
-  max-width: 420px;
   text-align: center;
   transition: transform 0.2s ease;
+}
+
+.full-width-chart {
+  grid-column: 1 / -1;
 }
 
 .chart-box:hover {
