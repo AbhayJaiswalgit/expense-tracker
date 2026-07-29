@@ -57,8 +57,6 @@ const handleIncomesByDate = async (req, res) => {
       },
     });
 
-    console.log(incomes);
-
     let total = 0;
     for (let i = 0; i < incomes.length; i++) {
       total += incomes[i].amount;

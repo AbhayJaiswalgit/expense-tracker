@@ -30,7 +30,11 @@ mongoose
     console.log(error);
   });
 
-app.use(cors());
+app.use(cors({
+  origin: "https://expense-tracker-navy-sigma-25.vercel.app",
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
 app.use(express.json());
 
 app.get("/health", (req, res) => {

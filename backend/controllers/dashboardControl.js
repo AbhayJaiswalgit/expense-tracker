@@ -1,10 +1,8 @@
 const income = require("../models/income");
 const expense = require("../models/expense");
 const mongoose = require("mongoose");
-const { date } = require("joi");
 
 const handleGetSummary = async (req, res) => {
-  console.log(req.user);
   const userId = req.user._id;
   try {
     const [incomeTotal] = await income.aggregate([
@@ -35,8 +33,6 @@ const handleGetSummary = async (req, res) => {
       .sort({ date: -1 })
       .limit(5);
 
-    console.log("   recentIncome count:", recentIncome.length);
-    console.log("   recentExpense count:", recentExpense.length);
 
     return res.status(200).json({
       success: true,

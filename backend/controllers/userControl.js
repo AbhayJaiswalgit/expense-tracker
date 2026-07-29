@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken");
 
 const handleSignUp = async (req, res) => {
   try {
-    console.log("signup", req.body);
     const { name, email, password } = req.body;
     const curruser = await user.findOne({ email });
     if (curruser) {
@@ -60,16 +59,16 @@ const handleLogin = async (req, res) => {
 
 const handleMonthlyLimit = async (req, res) => {
   try {
-    const { monthyLimit } = req.body;
+    const { monthlyLimit } = req.body;
     const curruser = await user.findByIdAndUpdate(
       req.user._id,
-      { monthyLimit },
+      { monthlyLimit },
       { new: true }
     );
 
     return res.status(200).json({
       success: true,
-      monthyLimit: curruser.monthlyLimit,
+      monthlyLimit: curruser.monthlyLimit,
       message: "Monthly Limit Updated",
     });
   } catch (err) {

@@ -9,6 +9,14 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    if (window.innerWidth <= 768) {
+      toggleSidebar();
+    }
+  };
+
   return (
     <>
       {/* Mobile Backdrop */}
@@ -54,7 +62,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           </li>
 
           <li className="nav-item mb-2">
-            <Link className="nav-link text-white" to="/login" onClick={handleLinkClick}>
+            <Link className="nav-link text-white" to="/login" onClick={handleLogout}>
               Logout
             </Link>
           </li>

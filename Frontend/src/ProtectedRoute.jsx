@@ -1,10 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 function ProtectedRoute({ children }) {
-  const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
-  return token ? children : navigate("/login");
+  // Use <Navigate> component (not navigate() function) — safe for render phase.
+  // `replace` prevents the user from pressing Back to return to the dashboard.
+  return token ? children : <Navigate to="/login" replace />;
 }
 
 export default ProtectedRoute;
